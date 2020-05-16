@@ -1,8 +1,5 @@
 ---
 version: 0.2
-env:
-  parameter-store:
-    JWT_SECRET: "corona@2020"
 
 phases:
   install:
@@ -20,7 +17,7 @@ phases:
         - export KUBECONFIG=$HOME/.kube/config
   build:
     commands:
-      - docker build --tag $REPOSITORY_URI:$TAG .
+      - docker build  --env-file=env_file --tag $REPOSITORY_URI:$TAG .
 
   post_build:
     commands:
