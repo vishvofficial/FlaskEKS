@@ -8,4 +8,4 @@ RUN pip3 install wheel
 RUN pip3 install flask
 RUN pip3 install -r /app/requirements.txt
 
-ENTRYPOINT ["python3", "main.py"]
+ENTRYPOINT ["gunicorn", "-b :8080 main:APP"]
